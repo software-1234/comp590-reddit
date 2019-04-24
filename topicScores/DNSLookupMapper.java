@@ -11,11 +11,11 @@ import org.apache.hadoop.io.*;
 import org.apache.hadoop.util.*;
 import org.apache.hadoop.mapreduce.Mapper;
 
-public class WordCountMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
-	@Override
+public class DNSLookupMapper extends Mapper<LongWritable, Text, Text, Text> {
 	public void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 		String[] tokens = value.toString().split(",");
 		String comment = tokens[0];
+		String word = "";
 		if (comment.contains("immigration") || comment.contains("immigrant") || comment.contains("immigrants")
 				|| comment.contains("honduras") || comment.contains("migrant") || comment.contains("migrants")
 				|| comment.contains("mexican") || comment.contains("mexicans") || comment.contains("deport")
