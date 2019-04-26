@@ -122,7 +122,8 @@ public class DNSLookupMapper extends Mapper<LongWritable, Text, Text, Text> {
 				|| comment.contains("unite")) {
 			word = "race";
 			context.write(new Text(word), new Text(tokens[1]));
-		} else if (comment.contains("tax") || comment.contains("taxes") || comment.contains("economy")
+		}
+	       	if (comment.contains("tax") || comment.contains("taxes") || comment.contains("economy")
 				|| comment.contains("economy's") || comment.contains("economies") || comment.contains("globalization")
 				|| comment.contains("trade") || comment.contains("trades") || comment.contains("deal")
 				|| comment.contains("deals") || comment.contains("domestic") || comment.contains("finance")
